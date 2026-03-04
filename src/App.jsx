@@ -48,17 +48,19 @@ function App() {
       setFinalResult("0");
     } else {
       if (resultIsNotEmpty) {
-        console.log('jatketaan tuloksesta');
+        // if result exists, copy it to begin a new calculation
+        // copy the result also to the screen input state
         let screenCopy = finalResult;
         screenCopy += character;
+
         let copy = finalResult;
-        console.log(copy);
         setFinalResult("0");
         copy += character;
-        console.log(copy);
+
         setInput(copy);
         setResultIsNotEmpty(false);
         setScreenInput(screenCopy);
+        
       } else {
         let copy = screenInput;
         copy += character;
