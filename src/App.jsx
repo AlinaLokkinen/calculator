@@ -7,6 +7,7 @@ function App() {
   const [input, setInput] = useState("");
   const [screenInput, setScreenInput] = useState("");
   const [finalResult, setFinalResult] = useState("0");
+  const [resultIsNotEmpty, setResultIsNotEmpty] = useState(false);
   const operators = {
     "^": {
       prec: 4,
@@ -32,25 +33,41 @@ function App() {
 
   const handleInput = (character) => {
     if (character === "=") {
+      setResultIsNotEmpty(true);
       parseInput(input);
-      let copy = "";
-      setInput(copy);
+      console.log("input = jälkeen: " + input);
+      // let copy = "";
+      // setInput(copy);
+      // setScreenInput(copy);
     } else if (character.toLowerCase() === "bs") {
-      const copy = [...input];
-      copy.pop();
-      setInput(copy);
+      // TODO
     } else if (character === "C") {
+      setResultIsNotEmpty(false);
       setInput([]);
       setScreenInput("");
-      setFinalResult(0);
+      setFinalResult("0");
     } else {
-      let copy = screenInput;
-      copy += character;
-      setScreenInput(copy);
-      if (!isNaN(parseFloat(character))) {
-        setInput(input + character);
+      if (resultIsNotEmpty) {
+        console.log('jatketaan tuloksesta');
+        let screenCopy = finalResult;
+        screenCopy += character;
+        let copy = finalResult;
+        console.log(copy);
+        setFinalResult("0");
+        copy += character;
+        console.log(copy);
+        setInput(copy);
+        setResultIsNotEmpty(false);
+        setScreenInput(screenCopy);
       } else {
-        setInput(input + character);
+        let copy = screenInput;
+        copy += character;
+        setScreenInput(copy);
+        if (!isNaN(parseFloat(character))) {
+          setInput(input + character);
+        } else {
+          setInput(input + character);
+        }
       }
     }
   };
@@ -78,7 +95,7 @@ function App() {
   };
 
   useEffect(() => {
-    // console.log("Input: " + input);
+    // 
   }, [input]);
 
   const assert = (predicate) => {
@@ -97,7 +114,7 @@ function App() {
           break;
         case Object.keys(operators).includes(token):
           const o1 = token;
-          let o2 = stack[stack.length-1];
+          let o2 = stack[stack.length - 1];
 
           while (
             o2 !== undefined &&
@@ -107,7 +124,7 @@ function App() {
                 operators[o1].assoc === "left"))
           ) {
             output.push(stack.pop());
-            o2 = stack[stack.length-1];
+            o2 = stack[stack.length - 1];
           }
           stack.push(o1);
           break;
@@ -121,7 +138,7 @@ function App() {
     }
 
     while (stack.length !== 0) {
-      assert(stack[stack.length-1] !== "(");
+      assert(stack[stack.length - 1] !== "(");
       output.push(stack.pop());
     }
 

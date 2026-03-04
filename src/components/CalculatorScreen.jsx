@@ -12,7 +12,7 @@ const CalculatorScreen = ({ result, screenInput }) => {
       <h1 className="text-tealdark m-3 text-sm font-semibold">CALCI</h1>
       <div className="h-1/2 flex flex-col justify-end items-end mx-10 ">
       <p className="text-2xl text-end">{screenInput}</p>
-        {result != 0 ? <p>{result}</p> : <p>0</p>}
+        {result != 0 ? <p>{parseFloat((result).toFixed(5))}</p> : <p>0</p>}
       </div>
     </div>
   );
