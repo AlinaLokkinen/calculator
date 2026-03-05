@@ -32,40 +32,48 @@ function App() {
   };
 
   const handleInput = (character) => {
-    if (character === "=") {
-      setResultIsNotEmpty(true);
-      parseInput(input);
-      console.log("input = jälkeen: " + input);
-    } else if (character.toLowerCase() === "bs") {
-      // TODO
-    } else if (character === "C") {
-      setResultIsNotEmpty(false);
-      setInput([]);
-      setScreenInput("");
-      setFinalResult("0");
+    if (isNaN(character) && isNaN(input[input.length -1])) {
+      return;
     } else {
-      if (resultIsNotEmpty) {
-        // if result exists, copy it to begin a new calculation
-        // copy the result also to the screen input state
-        let screenCopy = finalResult;
-        screenCopy += character;
-
-        let copy = finalResult;
-        setFinalResult("0");
-        copy += character;
-
-        setInput(copy);
+      if (character === "=") {
+        setResultIsNotEmpty(true);
+        parseInput(input);
+        console.log("input = jälkeen: " + input);
+      } else if (character.toLowerCase() === "bs") {
+        setInput(input.slice(0, -1));
+        setScreenInput(screenInput.slice(0, -1));
+      } else if (character === "C") {
         setResultIsNotEmpty(false);
-        setScreenInput(screenCopy);
-        
+        setInput([]);
+        setScreenInput("");
+        setFinalResult("0");
+      } else if (character === "%") {
+        setInput(input + "/100");
+        setScreenInput(screenInput + "%");
+        return;
       } else {
-        let copy = screenInput;
-        copy += character;
-        setScreenInput(copy);
-        if (!isNaN(parseFloat(character))) {
-          setInput(input + character);
+        if (resultIsNotEmpty) {
+          // if result exists, copy it to begin a new calculation
+          // copy the result also to the screen input state
+          let screenCopy = finalResult;
+          screenCopy += character;
+
+          let copy = finalResult;
+          setFinalResult("0");
+          copy += character;
+
+          setInput(copy);
+          setResultIsNotEmpty(false);
+          setScreenInput(screenCopy);
         } else {
-          setInput(input + character);
+          let copy = screenInput;
+          copy += character;
+          setScreenInput(copy);
+          if (!isNaN(parseFloat(character))) {
+            setInput(input + character);
+          } else {
+            setInput(input + character);
+          }
         }
       }
     }
@@ -93,9 +101,9 @@ function App() {
     shuntingYard(parsed);
   };
 
-  useEffect(() => {
-    // 
-  }, [input]);
+  // useEffect(() => {
+  //   //
+  // }, [input]);
 
   const assert = (predicate) => {
     if (predicate) return;
@@ -145,11 +153,19 @@ function App() {
     // console.log("stack: " + stack);
 
     // console.log("output: " + output);
+    
+    if (output.length < 3) {
+      setFinalResult("");
+      setScreenInput("");
+    } else {
     handleCalculation(output);
+
+    }
   };
 
   const handleCalculation = (input) => {
     const stack = [];
+    let error = "Cannot divide by 0";
 
     const handleToken = (token) => {
       if (!isNaN(parseFloat(token))) {
@@ -161,19 +177,23 @@ function App() {
       const left = parseFloat(stack.pop());
       // console.log('right: ' + right + ' left: ' + left)
 
+      if (token === "/" && right === 0) {
+        setFinalResult(error);
+        return;
+      }
       switch (token) {
         case "+":
           stack.push(left + right);
-          return;
+          break;
         case "-":
           stack.push(left - right);
-          return;
+          break;
         case "x":
           stack.push(left * right);
-          return;
+          break;
         case "/":
           stack.push(left / right);
-          return;
+          break;
       }
     };
 
