@@ -8,7 +8,7 @@ const Button = ({ b, handleClick }) => {
           <img
             className="max-h-10"
             src={bs}
-            alt="a backspace icon"
+            alt="backspace icon"
             onClick={() => handleClick(b)}
           />
         </button>

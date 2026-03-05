@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1772698961008" clover="3.2.0">
+  <project timestamp="1772698961009" name="All files">
+    <metrics statements="104" coveredstatements="103" conditionals="43" coveredconditionals="36" methods="16" coveredmethods="16" elements="163" coveredelements="155" complexity="0" loc="104" ncloc="104" packages="2" files="4" classes="4"/>
+    <package name="src">
+      <metrics statements="92" coveredstatements="91" conditionals="37" coveredconditionals="30" methods="9" coveredmethods="9"/>
+      <file name="App.jsx" path="C:\Users\35845\Desktop\projekteja\calculator\src\App.jsx">
+        <metrics statements="92" coveredstatements="91" conditionals="37" coveredconditionals="30" methods="9" coveredmethods="9"/>
+        <line num="7" count="43" type="stmt"/>
+        <line num="8" count="43" type="stmt"/>
+        <line num="9" count="43" type="stmt"/>
+        <line num="10" count="43" type="stmt"/>
+        <line num="11" count="43" type="stmt"/>
+        <line num="34" count="43" type="stmt"/>
+        <line num="35" count="35" type="cond" truecount="2" falsecount="0"/>
+        <line num="36" count="7" type="stmt"/>
+        <line num="37" count="7" type="stmt"/>
+        <line num="38" count="7" type="stmt"/>
+        <line num="39" count="28" type="cond" truecount="1" falsecount="1"/>
+        <line num="41" count="28" type="cond" truecount="2" falsecount="0"/>
+        <line num="42" count="1" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="45" count="1" type="stmt"/>
+        <line num="47" count="27" type="cond" truecount="2" falsecount="0"/>
+        <line num="50" count="1" type="stmt"/>
+        <line num="51" count="1" type="stmt"/>
+        <line num="53" count="1" type="stmt"/>
+        <line num="54" count="1" type="stmt"/>
+        <line num="55" count="1" type="stmt"/>
+        <line num="57" count="1" type="stmt"/>
+        <line num="58" count="1" type="stmt"/>
+        <line num="59" count="1" type="stmt"/>
+        <line num="62" count="26" type="stmt"/>
+        <line num="63" count="26" type="stmt"/>
+        <line num="64" count="26" type="stmt"/>
+        <line num="65" count="26" type="cond" truecount="2" falsecount="0"/>
+        <line num="66" count="17" type="stmt"/>
+        <line num="68" count="9" type="stmt"/>
+        <line num="74" count="43" type="stmt"/>
+        <line num="76" count="7" type="stmt"/>
+        <line num="77" count="7" type="stmt"/>
+        <line num="78" count="7" type="stmt"/>
+        <line num="79" count="25" type="cond" truecount="1" falsecount="1"/>
+        <line num="80" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="81" count="16" type="stmt"/>
+        <line num="83" count="9" type="cond" truecount="1" falsecount="1"/>
+        <line num="84" count="9" type="stmt"/>
+        <line num="85" count="9" type="stmt"/>
+        <line num="87" count="9" type="stmt"/>
+        <line num="90" count="7" type="cond" truecount="1" falsecount="1"/>
+        <line num="91" count="7" type="stmt"/>
+        <line num="93" count="7" type="stmt"/>
+        <line num="96" count="43" type="stmt"/>
+        <line num="100" count="43" type="stmt"/>
+        <line num="101" count="8" type="cond" truecount="1" falsecount="1"/>
+        <line num="102" count="0" type="stmt"/>
+        <line num="105" count="43" type="stmt"/>
+        <line num="106" count="7" type="stmt"/>
+        <line num="107" count="7" type="stmt"/>
+        <line num="109" count="7" type="stmt"/>
+        <line num="110" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="112" count="16" type="stmt"/>
+        <line num="113" count="16" type="stmt"/>
+        <line num="115" count="9" type="stmt"/>
+        <line num="116" count="9" type="stmt"/>
+        <line num="118" count="9" type="stmt"/>
+        <line num="125" count="1" type="stmt"/>
+        <line num="126" count="1" type="stmt"/>
+        <line num="128" count="9" type="stmt"/>
+        <line num="129" count="9" type="stmt"/>
+        <line num="133" count="7" type="stmt"/>
+        <line num="134" count="25" type="cond" truecount="1" falsecount="1"/>
+        <line num="136" count="25" type="stmt"/>
+        <line num="139" count="7" type="stmt"/>
+        <line num="140" count="8" type="stmt"/>
+        <line num="141" count="8" type="stmt"/>
+        <line num="148" count="7" type="stmt"/>
+        <line num="151" count="43" type="stmt"/>
+        <line num="152" count="7" type="stmt"/>
+        <line num="154" count="7" type="stmt"/>
+        <line num="155" count="25" type="cond" truecount="2" falsecount="0"/>
+        <line num="156" count="16" type="stmt"/>
+        <line num="157" count="16" type="stmt"/>
+        <line num="160" count="9" type="stmt"/>
+        <line num="161" count="9" type="stmt"/>
+        <line num="164" count="9" type="cond" truecount="4" falsecount="0"/>
+        <line num="166" count="2" type="stmt"/>
+        <line num="167" count="2" type="stmt"/>
+        <line num="169" count="1" type="stmt"/>
+        <line num="170" count="1" type="stmt"/>
+        <line num="172" count="3" type="stmt"/>
+        <line num="173" count="3" type="stmt"/>
+        <line num="175" count="3" type="stmt"/>
+        <line num="176" count="3" type="stmt"/>
+        <line num="180" count="7" type="stmt"/>
+        <line num="181" count="25" type="cond" truecount="1" falsecount="1"/>
+        <line num="182" count="25" type="stmt"/>
+        <line num="184" count="7" type="stmt"/>
+        <line num="187" count="43" type="stmt"/>
+      </file>
+    </package>
+    <package name="src.components">
+      <metrics statements="12" coveredstatements="12" conditionals="6" coveredconditionals="6" methods="7" coveredmethods="7"/>
+      <file name="Button.jsx" path="C:\Users\35845\Desktop\projekteja\calculator\src\components\Button.jsx">
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="877" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="16" count="37" type="stmt"/>
+      </file>
+      <file name="CalculatorScreen.jsx" path="C:\Users\35845\Desktop\projekteja\calculator\src\components\CalculatorScreen.jsx">
+        <metrics statements="2" coveredstatements="2" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="6" count="48" type="stmt"/>
+      </file>
+      <file name="Grid.jsx" path="C:\Users\35845\Desktop\projekteja\calculator\src\components\Grid.jsx">
+        <metrics statements="6" coveredstatements="6" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="46" type="stmt"/>
+        <line num="27" count="46" type="stmt"/>
+        <line num="28" count="36" type="stmt"/>
+        <line num="31" count="46" type="stmt"/>
+        <line num="35" count="874" type="cond" truecount="2" falsecount="0"/>
+      </file>
+    </package>
+  </project>
+</coverage>

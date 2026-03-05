@@ -36,9 +36,6 @@ function App() {
       setResultIsNotEmpty(true);
       parseInput(input);
       console.log("input = jälkeen: " + input);
-      // let copy = "";
-      // setInput(copy);
-      // setScreenInput(copy);
     } else if (character.toLowerCase() === "bs") {
       // TODO
     } else if (character === "C") {
