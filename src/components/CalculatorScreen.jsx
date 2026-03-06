@@ -8,15 +8,13 @@ const CalculatorScreen = ({ result, screenInput }) => {
         <p data-testid="screen-input" className="text-2xl text-end">
           {screenInput}
         </p>
-        {result < 1 ? (
-          <p data-testid="screen-result">{parseFloat(result)}</p>
+        {result < 1 && result != 0 ? (
+          <p data-testid="screen-result">{parseFloat(result).toFixed(10)}</p>
         ) : result != 0 ? (
           <p data-testid="screen-result">{parseFloat(result.toFixed(5))}</p>
         ) : (
           <p data-testid="screen-result">0</p>
         )}
-
-        {/* {(result != 0 && result != "Cannot divide by 0" )? <p data-testid="screen-result">{parseFloat((result).toFixed(5))}</p> : result === "Cannot divide by 0" ? <p data-testid="screen-result">Cannot divide by 0</p> : <p data-testid="screen-result">0</p>} */}
       </div>
     </div>
   );

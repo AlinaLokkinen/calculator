@@ -9,10 +9,6 @@ function App() {
   const [finalResult, setFinalResult] = useState("0");
   const [resultIsNotEmpty, setResultIsNotEmpty] = useState(false);
   const operators = {
-    "^": {
-      prec: 4,
-      assoc: "right",
-    },
     x: {
       prec: 3,
       assoc: "left",
@@ -32,8 +28,28 @@ function App() {
   };
 
   const handleInput = (character) => {
-    if (isNaN(character) && isNaN(input[input.length -1])) {
+    if (
+      input.length != 0 &&
+      isNaN(character) &&
+      isNaN(input[input.length - 1]) &&
+      character != "C"
+    ) {
       return;
+    } else if (character === ".") {
+      if (input.length === 0) {
+        setInput(input + "0.");
+        setScreenInput(screenInput + "0.");
+      } else {
+        const numbersInInput = input.split(/[+\-\x/]/);
+        const currentNumber = numbersInInput[numbersInInput.length - 1];
+        if (currentNumber.includes(".")) {
+          return;
+        } else {
+          setInput(input + character);
+          setScreenInput(screenInput + character);
+        }
+        return;
+      }
     } else {
       if (character === "=") {
         setResultIsNotEmpty(true);
@@ -149,17 +165,11 @@ function App() {
       output.push(stack.pop());
     }
 
-    // console.log("output: " + output);
-    // console.log("stack: " + stack);
-
-    // console.log("output: " + output);
-    
     if (output.length < 3) {
       setFinalResult("");
       setScreenInput("");
     } else {
-    handleCalculation(output);
-
+      handleCalculation(output);
     }
   };
 

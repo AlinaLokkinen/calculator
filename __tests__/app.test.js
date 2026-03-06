@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /**
  * @jest-environment jsdom
  */
@@ -218,7 +219,6 @@ describe("app", () => {
     fireEvent.click(screen.getByTestId("button-0"));
     fireEvent.click(screen.getByTestId("button-%"));
 
-
     expect(screenInput).toHaveTextContent("10%+50%");
 
     fireEvent.click(screen.getByText("="));
@@ -288,17 +288,13 @@ describe("app", () => {
     fireEvent.click(screen.getByTestId("button-0"));
     fireEvent.click(screen.getByTestId("button-0"));
     fireEvent.click(screen.getByTestId("button-4"));
-
-   
-
     expect(screenInput).toHaveTextContent("0.00007x0.00004");
 
     fireEvent.click(screen.getByText("="));
 
     const result = screen.getByTestId("screen-result");
-    expect(result).toHaveTextContent("2.8e-9");
+    expect(result).toHaveTextContent("0.0000000028");
   });
-
 
   test("throws NaN if user tries to divide by 0", () => {
     render(<App />);
@@ -364,7 +360,6 @@ describe("app", () => {
     fireEvent.click(screen.getByTestId("button-9"));
     fireEvent.click(screen.getByTestId("button-9"));
 
-
     expect(screenInput).toHaveTextContent("11.25+22.4/41.99");
 
     fireEvent.click(screen.getByTestId("button-="));
@@ -385,10 +380,9 @@ describe("app", () => {
     fireEvent.click(screen.getByText("/"));
     fireEvent.click(screen.getByText("3"));
 
-
     expect(screenInput).toHaveTextContent("1+2/3");
 
-    fireEvent.click(screen.getByTestId("button-="))
+    fireEvent.click(screen.getByTestId("button-="));
     const result = screen.getByTestId("screen-result");
     expect(result).toHaveTextContent("1.66667");
   });
@@ -397,23 +391,43 @@ describe("app", () => {
     render(<App />);
 
     const screenInput = screen.getByTestId("screen-input");
-    fireEvent.click(screen.getByTestId("button-1"))
-    fireEvent.click(screen.getByTestId("button-+"))
-    fireEvent.click(screen.getByTestId("button-="))
+    fireEvent.click(screen.getByTestId("button-1"));
+    fireEvent.click(screen.getByTestId("button-+"));
+    fireEvent.click(screen.getByTestId("button-="));
     expect(screenInput).not.toHaveTextContent();
     const result = screen.getByTestId("screen-result");
     expect(result).toHaveTextContent("0");
-  })
+  });
 
   test("clicking backspace if screeninput is empty does nothing", () => {
     render(<App />);
 
     const screenInput = screen.getByTestId("screen-input");
-    fireEvent.click(screen.getByTestId("button-bs"))
+    fireEvent.click(screen.getByTestId("button-bs"));
     expect(screenInput).not.toHaveTextContent();
     const result = screen.getByTestId("screen-result");
     expect(result).toHaveTextContent("0");
-  })
+  });
+
+  test("cannot add a decimal point if the current number already has one", () => {
+    render(<App />);
+
+    const screenInput = screen.getByTestId("screen-input");
+    fireEvent.click(screen.getByTestId("button-1"));
+    fireEvent.click(screen.getByTestId("button-."));
+    fireEvent.click(screen.getByTestId("button-1"));
+    fireEvent.click(screen.getByTestId("button-."));
+    expect(screenInput).toHaveTextContent("1.1");
+  });
+
+  test("adds 0 and decimal point to input if input is empty and user clicks on decimal point", () => {
+    render(<App />);
+
+    const screenInput = screen.getByTestId("screen-input");
+    expect(screenInput).not.toHaveTextContent();
+
+    fireEvent.click(screen.getByTestId("button-."));
+
+    expect(screenInput).toHaveTextContent("0.");
+  });
 });
-
-

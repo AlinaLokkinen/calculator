@@ -4,7 +4,7 @@ const Button = ({ b, handleClick }) => {
   return (
     <div className="text-white font-normal text-3xl h-full flex justify-center items-center">
       {b === "bs" ? (
-        <button data-testid="button-bs" className="">
+        <button data-testid="button-bs" >
           <img
             className="max-h-10"
             src={bs}
@@ -13,7 +13,7 @@ const Button = ({ b, handleClick }) => {
           />
         </button>
       ) : (
-        <button data-testid={`button-${b}`} onClick={() => handleClick(b)}>{b}</button>
+        <button className=" w-full h-full" data-testid={`button-${b}`} onClick={() => handleClick(b)}>{b}</button>
       )}
     </div>
   );
